@@ -13,7 +13,9 @@ class User(object):
         """Creates a new user with the given uid (private) and puid (public)."""
         self.uid = uid  # this id should never be exposed to the user
         self.puid = puid  # this id is exposed to all users
-
+        self.gid = -1 #Which game is he in 
+        
+        
         self.ping()
         self.set_name('player.%s' % puid[:4])
 

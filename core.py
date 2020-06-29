@@ -13,16 +13,16 @@ from utils import INFINITY
 class Limits(object):
     """Static parameter limits for validation."""
 
-    MIN_NAME = 3
+    MIN_NAME = 2
     MAX_NAME = 20
 
-    MIN_PLAYERS = 3
-    MAX_PLAYERS = 6
+    MIN_PLAYERS = 2
+    MAX_PLAYERS = 12
 
     MIN_SCORE = 1
     MAX_SCORE = INFINITY
 
-    MIN_CLUE_LENGTH = 5
+    MIN_CLUE_LENGTH = 3
     MAX_CLUE_LENGTH = 100000
 
     MAX_MESSAGE = 1024
@@ -240,6 +240,7 @@ class Game(object):
 
     def create_clue(self, user, clue, card):
         """Transitions from CLUE to PLAY, or throws APIError."""
+        
         if self.state != States.CLUE:
             raise APIError(Codes.CLUE_BAD_STATE)
         if user != self.clue_maker():
@@ -250,6 +251,7 @@ class Game(object):
             raise APIError(Codes.CLUE_TOO_LONG)
         if not self.players[user].has_card(card):
             raise APIError(Codes.NOT_HAVE_CARD)
+        
         self.round = Round(self.players, clue, self.clue_maker())
         self.round.play_card(user, card)
         self.players[user].deal(self.deck.deal())
