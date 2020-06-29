@@ -43,28 +43,41 @@ class Sizes(object):
 
     PIECE        = 45
     BUNNY_PICKER = 70
-    CARD_WIDTH   = 250
-    CARD_HEIGHT  = 380
+    CARD_WIDTH   = 210
+    CARD_HEIGHT  = 320
     YOUR_TURN    = 24
-    TOKEN        = 80
+    TOKEN        = 50
 
 
 class BunnyPalette(object):
     """Bunny colours to choose from."""
 
-    RED    = 'c52828'
-    ORANGE = 'e59100'
-    YELLOW = 'e2e05d'
-    GREEN  = '12751b'
-    BLUE   = '214ddc'
-    PURPLE = 'a41bf3'
-    PINK   = 'd2638d'
-    WHITE  = 'd3ceca'
-    BLACK  = '3a363b'
-
+    RED    = '#c52828'
+    ORANGE = '#e59100'
+    YELLOW = '#e2e05d'
+    GREEN  = '#12751b'
+    BLUE   = '#214ddc'
+    PURPLE = '#a41bf3'
+    PINK   = '#ff14f3'
+    LGREEN = '#90ee90'
+    BLACK  = '#3a363b'
+    
+    HPINK  = '#ff69b4'
+    GREY   = '#c0c0c0'
+    RAINB  = 'linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet)'
+    
+    GBLUE = '#0d9a86'
+    MARON = '#800000'
+    
+    COMM   = 'url(' + url_join(WebPaths.IMAGES, "comm.png") + ')'
+    ANAR   = 'url(' + url_join(WebPaths.IMAGES, "anar.jpg") + ')'
+    
+    allColors = {'RED':RED, 'ORANGE':ORANGE, 'YELLOW':YELLOW, 'GREEN':GREEN, 'BLUE':BLUE, 'PURPLE':PURPLE, 
+                'PINK':PINK, 'LGREEN':LGREEN, 'BLACK':BLACK, 'HPINK':HPINK, 'GREY':GREY, 'RAINB':RAINB,
+                'MARON':MARON, 'GBLUE':GBLUE, 'COMM':COMM, 'ANAR':ANAR}
+    allCols = [['RED', 'ORANGE', 'YELLOW','GREEN'] ,['BLUE', 'PURPLE','PINK', 'LGREEN'], [ 'BLACK', 'HPINK', 'GREY', 'RAINB'], ['MARON', 'GBLUE', 'COMM', 'ANAR']]
+    
     @classmethod
     def is_colour(cls, cid):
         """Determines if the given colour id is valid."""
-        return cid in (cls.RED, cls.ORANGE, cls.YELLOW,
-                       cls.GREEN, cls.BLUE, cls.PURPLE,
-                       cls.PINK, cls.WHITE, cls.BLACK)
+        return cid in cls.allColors
