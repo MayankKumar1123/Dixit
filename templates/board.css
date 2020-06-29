@@ -1,0 +1,293 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  background-color: #FFF;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 12px;
+}
+
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  border-color: #000;
+}
+
+/* Top Dixit banner */
+
+#banner {
+  padding: 5px;
+  background-color: #4576bb;
+  border-width: 0 0 0px 0;
+  border-style: solid;
+  border-color: #000;
+}
+
+#banner #dixitLogo {
+  height: 120px;
+}
+
+
+/* Selecting a colour to join a game */
+
+#bunnyPalette {
+  text-align: left;
+  margin-top: 15px;
+}
+
+#bunnyPalette table {
+  padding: 5px;
+  background-color: #acc3ff;
+  border: 1px solid #999;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+
+#bunnyPalette .bunnyPicker {
+  height: {{ display.Sizes.BUNNY_PICKER }}px;
+}
+
+#bunnyPalette .bunnyPicker img {
+  height: {{ display.Sizes.BUNNY_PICKER }}px;
+}
+
+#bunnyPalette .bunnyTaken {
+  opacity: 0.4;
+}
+
+
+
+#userTableOuter {
+  overflow-y: auto;
+  max-height: 97px;
+}
+
+#userTable{
+  background-color: #acc3ff;
+  width: 350px;
+  border: 1px solid #000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
+#userTable:hover{
+    z-index: 3;
+}
+
+
+#startGameContainer {
+  padding: 15px;
+  text-align: center;
+}
+
+#startButton {
+  padding: 15px;
+  font-size: 20px;
+}
+
+
+#clue {
+  font-size: 20px;
+  text-align: center;
+}
+
+#outsideClue{
+  text-align:center;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:60px;
+  font-weight:bold;
+}
+
+
+
+/*THIS IS TESTING*************************************/
+
+#handsCon{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    cursor: crosshair;
+    
+}
+
+.classifyy {
+  height: {{ display.Sizes.TOKEN/2 }}px;
+  width: {{ display.Sizes.CARD_WIDTH }}px;
+  border: 2px solid #AAA;
+  position: absolute;
+  opacity: 0.8;
+  display: none;
+}
+
+.token {
+  /* Transparent voting token */
+  width: {{ display.Sizes.TOKEN }}px;
+  height: {{ display.Sizes.TOKEN }}px;
+  border: 2px solid #AAA;
+  position: absolute;
+  opacity: 0.7;
+  display: none;
+}
+
+#cards{
+    
+    left: 0;
+    right: 0;
+    cursor: crosshair;
+    z-index: 2;
+    
+}
+
+.imageRowH {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  
+  padding: 0 18px;
+  
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+
+.imageRowC {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  
+  padding: 0 18px;
+  
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+
+.boxImgH{
+    width: 16%;
+    padding: 0 2px;
+}
+
+
+.boxImgC{
+    width: 16%;
+    padding: 0 2px;
+}
+
+
+
+
+.collapse{
+    height: 20px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    
+}
+
+.collapse:hover {
+  opacity: 1.0;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 5; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 300px;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 40px;
+}
+
+#imgCardForm{
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  padding: 10px 0;
+  height: 200px;
+  
+  overflow-x:hidden;
+
+}
+
+#hintImgCard{
+    margin: auto;
+    display: none;
+    width: 300px;
+    
+}
+
+#submitImgCard{
+    margin: auto;
+    display: none;
+    text-align: center;
+    width: 100px;
+}
+
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+  animation-name: zoom;
+  animation-duration: 0.3s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.closeModal {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.closeModal:hover,
+.closeModal:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+
+/*THIS IS TESTING*************************************/

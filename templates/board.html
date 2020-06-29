@@ -1,0 +1,91 @@
+<head>
+  <title>Dixit</title>
+  <!--meta-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta property="og:type" content="website">
+  <!--title-->
+  <meta property="og:title" content="Dixit">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--<script type="text/javascript" src="{{ display.WebPaths.JS }}/magnifier.js"></script>-->
+  <script type="text/javascript" src="{{ display.WebPaths.JS }}/smilies.js"></script>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="board.css">
+  <link href="https://fonts.googleapis.com/css?family=Changa:300" rel="stylesheet"> 
+</head>
+
+<body>
+  <!-- need to add 
+        -> People in game
+        -> Colors used          -bunnyPalette, DONE
+        -> Whose turn is it
+        -> Cards in hand
+        -> Actual point board
+        -> Other cards when it's ready, along with clue
+    --> 
+  <span id='server-stats' style='display: none'></span>
+  <div id="overlay"></div>
+  <div id="banner">
+      <a href=""><img id="dixitLogo" src="{{ display.Images.BANNER }}" title="Dixit Online" /></a>
+      
+      <div id="userListContainer">
+          <table id="scoreBoard" cellspacing="0" cellpadding="0" border="0">
+          </table>
+      </div>
+  </div>
+  
+  <div id="userTableOuter">
+      <table id="userTable">
+      </table>
+  </div>
+  
+  <div id="bunnyPalette">
+      <h1>Select a colour</h1>
+      <table cellpadding="0" cellspacing="0" border="0">
+          {% for row in display.BunnyPalette.allCols %}
+          <tr>
+          {% for colour in row %}
+          <td><div class="bunnyPicker clickable" id="{{ colour }}" style="background:{{  display.BunnyPalette.allColors[colour]}}; background-size: 95% 95%;"><img src="{{ display.Images.BUNNY_READY }}" /></div></td>
+          {% end %}
+          </tr>
+          {% end %}
+      </table>
+  </div>
+  
+  <div id="startGameContainer">
+      <form id="startGame">
+          <button type="submit" id="startButton">Start Game</button>
+      </form>
+  </div>
+  
+  <div id="outsideClue">
+  </div>
+  
+  <div id = "handsCon">
+  <button class="collapse">v</button>
+  <div id="hands" class="imgContainer handCl">
+  
+  </div>
+  </div>
+  
+  <div id="cards" class="imgContainer cardCl">
+  
+  </div>
+  
+  <div id="myModal" class="modal">
+    <!-- The Close Button -->
+    <span class="closeModal">&times;</span>
+    <!-- Modal Content (The Image) -->
+    <img class="modal-content" id="img01">
+    <!-- Modal Caption (Image Text) -->
+    <div id="caption"></div>
+    <div id='imgCardForm' style="text-align: center">
+        <input id = 'hintImgCard' type='text'></input>
+        <button id='submitImgCard'>Submit</button>
+    </div>
+  </div>
+
+   <!--Javascript-->
+  <script language="javascript" type="text/javascript" src="board.js"></script>
+</body>

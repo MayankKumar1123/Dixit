@@ -1,0 +1,42 @@
+<head>
+  <title>Dixit</title>
+  <!--meta-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta property="og:type" content="website">
+  <!--title-->
+  <meta property="og:title" content="Dixit">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="login.css">
+  <link href="https://fonts.googleapis.com/css?family=Changa:300" rel="stylesheet"> 
+</head>
+
+<body>
+  <span id='server-stats' style='display: none'></span>
+
+  <div id="overlay"> </div>
+  <div id="join-game">
+    <h1>DIXIT</h1>
+    <form>
+      <div class='join-input'>
+        <label for='join-nickname'>Username: </label>
+        <input id='join-nickname' type='text' maxlength="10"></input>
+      </div>
+      <div class='join-input'>
+        <label for='join-room'>Room Code: </label>
+        <input id='join-room' type='text' maxlength="10"></input>
+      </div>
+      <div class='join-input'>
+        <label for='join-password'>Password: </label>
+        <input id='join-password' type='password' maxlength="20"></input>
+      </div>
+    </form>
+    <p id='error-message'> </p>
+    <button id='join-enter'>Enter Room</button>
+    <button id='join-create'>Create Room</button>
+  </div>
+   <!--Javascript-->
+  <script language="javascript" type="text/javascript" src="login.js"></script>
+</body>
