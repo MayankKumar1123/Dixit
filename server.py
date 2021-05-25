@@ -21,6 +21,8 @@ from utils import INFINITY, hash_obj, get_sorted_positions, url_join, \
     capture_stdout
 import config
 import display
+import asyncio
+import sys
 
 from tornado.options import define, options, parse_command_line
 
@@ -356,6 +358,8 @@ handlers = [
 ]
 
 if __name__ == "__main__":
+    if sys.version_info >= (3,8):
+        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
     app = Application(handlers, **settings)
     app.listen(options.port)
     tornado.ioloop.IOLoop.current().start()
